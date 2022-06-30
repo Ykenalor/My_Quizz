@@ -63,4 +63,7 @@ class QuestionRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+    public function getManager()
+    {
+    }
 }

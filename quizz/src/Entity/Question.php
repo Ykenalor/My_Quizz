@@ -16,20 +16,20 @@ class Question
      * @ORM\Column(type="integer")
      */
     private $id;
-
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $question;
 
+    private $id_categorie;
+
+    public function setId($id): void
+    {
+        $this->id = $id;
+    }
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getQuestion(): ?string
-    {
-        return $this->question;
     }
 
     public function setQuestion(string $question): self
@@ -38,4 +38,30 @@ class Question
 
         return $this;
     }
+    public function getQuestion(): ?string
+    {
+        return $this->question;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getIdCategorie()
+    {
+        return $this->id_categorie;
+    }
+
+    /**
+     * @param mixed $id_categorie
+     */
+    public function setIdCategorie($id_categorie): void
+    {
+        $this->id_categorie = $id_categorie;
+    }
+
+    /**
+     * @param mixed $id
+     */
+
 }

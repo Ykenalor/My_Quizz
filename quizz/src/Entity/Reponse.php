@@ -2,45 +2,40 @@
 
 namespace App\Entity;
 
+use App\Repository\ReponseRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Reponse
- *
- * @ORM\Table(name="reponse")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=ReponseRepository::class)
  */
 class Reponse
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="id_question", type="integer", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(type="string", length=255)
      */
-    private $idQuestion = NULL;
+    private $reponse;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="reponse", type="string", length=255, nullable=true, options={"default"="NULL"})
-     */
-    private $reponse = 'NULL';
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
-    /**
-     * @var bool|null
-     *
-     * @ORM\Column(name="reponse_expected", type="boolean", nullable=true, options={"default"="NULL"})
-     */
-    private $reponseExpected = 'NULL';
+    public function getReponse(): ?string
+    {
+        return $this->reponse;
+    }
 
+    public function setReponse(string $reponse): self
+    {
+        $this->reponse = $reponse;
 
+        return $this;
+    }
 }

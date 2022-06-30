@@ -2,38 +2,40 @@
 
 namespace App\Entity;
 
+use App\Repository\QuestionRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Question
- *
- * @ORM\Table(name="question")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=QuestionRepository::class)
  */
 class Question
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="id_categorie", type="integer", nullable=true, options={"default"="NULL"})
+     * @ORM\Column(type="string", length=255)
      */
-    private $idCategorie = NULL;
+    private $question;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="question", type="string", length=255, nullable=true, options={"default"="NULL"})
-     */
-    private $question = 'NULL';
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
+    public function getQuestion(): ?string
+    {
+        return $this->question;
+    }
 
+    public function setQuestion(string $question): self
+    {
+        $this->question = $question;
+
+        return $this;
+    }
 }

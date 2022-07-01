@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\LoginController;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
@@ -21,10 +21,10 @@ class LoginControllerRepository extends ServiceEntityRepository implements Passw
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, LoginController::class);
+        parent::__construct($registry, User::class);
     }
 
-    public function add(LoginController $entity, bool $flush = false): void
+    public function add(User $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -33,7 +33,7 @@ class LoginControllerRepository extends ServiceEntityRepository implements Passw
         }
     }
 
-    public function remove(LoginController $entity, bool $flush = false): void
+    public function remove(User $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -47,7 +47,7 @@ class LoginControllerRepository extends ServiceEntityRepository implements Passw
      */
     public function upgradePassword(PasswordAuthenticatedUserInterface $user, string $newHashedPassword): void
     {
-        if (!$user instanceof LoginController) {
+        if (!$user instanceof User) {
             throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', \get_class($user)));
         }
 

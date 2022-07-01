@@ -17,11 +17,17 @@
         <li>Your template at <code><a href="{{ '/home/user/Myquizz/quizz/templates/categorie/index.html.twig'|file_link(0) }}">templates/categorie/index.html.twig</a></code></li>
     </ul>
 </div>
+<div>
 
 <ul>
 
     {% for key, categorie in categorie %}
-        <li>{{ key }}: {{ categorie.name|e }}</li>
+
+<a href="/categorie/question/{{ key }}"> {{ categorie.name|e }} </a>
+
+
+
+
     {% endfor %}
 </ul>
 

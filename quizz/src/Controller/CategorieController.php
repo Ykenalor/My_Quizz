@@ -12,10 +12,15 @@ class CategorieController extends AbstractController
     /**
      * @Route("/categorie", name="app_categorie")
      */
-    public function index(CategorieRepository $repository): Response
+
+    public function index(CategorieRepository $categorieRepository): Response
     {
+        $cat = $categorieRepository->findAll();
+        //var_dump($cat);
+
         return $this->render('categorie/index.html.twig', [
             'controller_name' => 'CategorieController',
+            'categorie' => $cat,
         ]);
     }
 }

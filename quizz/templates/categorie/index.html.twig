@@ -9,12 +9,13 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <div>{{ categorie[0].name }}</div>
+    <h1>All categories ! ✅</h1>
 
-    This friendly message is coming from:
     <ul>
-        <li>Your controller at <code><a href="{{ '/home/spare/My_Quizz/quizz/src/Controller/CategorieController.php'|file_link(0) }}">src/Controller/CategorieController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/spare/My_Quizz/quizz/templates/categorie/index.html.twig'|file_link(0) }}">templates/categorie/index.html.twig</a></code></li>
+        {% for cat in categorie %}
+            <li> <a href="{{ path('app_question', {'id': cat.id}) }}">{{ cat.name }}</a></li>
+        {% endfor %}
     </ul>
 </div>
 {% endblock %}

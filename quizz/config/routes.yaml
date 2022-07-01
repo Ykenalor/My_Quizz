@@ -3,6 +3,6 @@ index:
           /question,
           /reponse
     controller: App\Controller\CategorieController::index,
-                App\Controller\QuestionController::index
+                App\Controller\QuestionController::index,
                 App\Controller\ReponseController::index
 

@@ -14,23 +14,12 @@ class QuestionController extends AbstractController
     /**
      * @Route("/question", name="app_question")
      */
-    public function index(QuestionRepository $questionRepository): Response
+
+    public function findQuestionsByCat(QuestionRepository $questionRepository): Response
     {
-        $ques = $questionRepository->findBy(array(
-            'id_categorie'=> ''
-        ), array(
-            'question'=>'Desc'
-        ),1,0);
-        print_r( $ques);
 
-//
-//        $question = new Question();
-//        $question->setIdCategorie();
-//        $question->setQuestion();
-//        $question->setId();
-//
-//        $entityManager->persist($question);
-
+        $ques = $questionRepository->findBy(array('id_categorie' => '5'),array('id' => 'ASC'));
+        print_r($ques);
 
         return $this->render('question/index.html.twig', [
             'controller_name' => 'QuestionController',

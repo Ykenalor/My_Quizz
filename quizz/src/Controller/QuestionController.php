@@ -1,7 +1,8 @@
 <?php
 
-
 namespace App\Controller;
+
+
 
 use App\Entity\Question;
 use App\Repository\QuestionRepository;
@@ -23,12 +24,13 @@ class QuestionController extends AbstractController
     {
         $id = $request->query->get('id');
 
-        $ques = $questionRepository->findBy(array('id_categorie' => $id),array('id' => 'ASC'));
-        print_r($ques);
 
+        $ques = $questionRepository->findBy(array('id_categorie' => $id),array('id' => 'ASC'));
 
         return $this->render('question/index.html.twig', [
             'controller_name' => 'QuestionController',
+            'question' => $ques,
+            
         ]);
     }
 }

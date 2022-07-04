@@ -17,4 +17,13 @@
         <li>Your template at <code><a href="{{ '/home/spare/My_Quizz/quizz/templates/question/index.html.twig'|file_link(0) }}">templates/question/index.html.twig</a></code></li>
     </ul>
 </div>
+
+    <h1>Questions</h1>
+    <ul>
+        {% for question in question %}
+            <li>{{ question.question }}</li>
+            {% if  %}
+        {% endfor %}
+    </ul>
+
 {% endblock %}

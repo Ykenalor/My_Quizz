@@ -17,4 +17,11 @@
         <li>Your template at <code><a href="{{ '/home/spare/My_Quizz/quizz/templates/reponse/index.html.twig'|file_link(0) }}">templates/reponse/index.html.twig</a></code></li>
     </ul>
 </div>
+    <h4>Reponse</h4>
+    <ul>
+        {% for reponse in reponse %}
+            <li>{{ reponse.reponse}}</li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}

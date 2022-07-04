@@ -8,8 +8,9 @@ security:
         # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             entity:
-                class: App\Entity\LoginController
+                class: App\Entity\User
                 property: pseudo
+        # used to reload user from session & other features (e.g. switch_user)
         # used to reload user from session & other features (e.g. switch_user)
     firewalls:
         dev:
@@ -21,6 +22,7 @@ security:
             logout:
                 path: app_logout
             custom_authenticator: App\Security\AuthAuthenticator
+         
                 # where to redirect after logout
                 # target: app_any_route
 

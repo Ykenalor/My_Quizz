@@ -22,7 +22,7 @@ class ReponseController extends AbstractController
 
         $res = $reponseRepository->findBy(array('id_question' => $id_ques),array('id_question' => 'ASC'));
 
-        return $this->render('reponse/index.html.twig', [
+        return $this->render('question/index.html.twig', [
             'controller_name' => 'ReponseController',
             'reponse' => $res
         ]);

@@ -36,7 +36,7 @@ class AuthAuthenticator extends AbstractLoginFormAuthenticator
 
         return new Passport(
             new UserBadge($pseudo),
-            new PasswordCredentials($request->request->get('password', '')),
+            new PasswordCredentials($request->request->get('password','')),
             [
                 new CsrfTokenBadge('authenticate', $request->request->get('_csrf_token')),
             ]

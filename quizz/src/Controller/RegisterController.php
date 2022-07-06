@@ -9,6 +9,8 @@ use PhpParser\Node\Expr\Print_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 use function PHPSTORM_META\type;
 
@@ -35,15 +37,20 @@ return $this->render('register/index.html.twig', [
 
 
 
-public function create(  Request $req ,UserRepository  $userRepository )
+public function create(  Request $req ,UserRepository  $userRepository, PasswordAuthenticatedUserInterface $password )
 
 {
 
+
+    $password;
 
     $user = new User();
     $pseudo= $req->request->get('pseudo');
 
     $password= $req->request->get('password');
+
+
+
 
     $user->setPassword(md5($password));
     

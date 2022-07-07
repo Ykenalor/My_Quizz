@@ -16,7 +16,6 @@ class CategorieController extends AbstractController
     public function index(CategorieRepository $categorieRepository): Response
     {
         $cat = $categorieRepository->findAll();
-        //var_dump($cat);
 
         return $this->render('categorie/index.html.twig', [
             'controller_name' => 'CategorieController',

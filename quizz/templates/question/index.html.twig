@@ -15,14 +15,17 @@
 
     <h1>Questions</h1>
     <ul>
-        {% for question in question %}
-            <li>{{ question.question }}</li>
-        {% endfor %}
+{#        {% if question %}#}
+{#        {% for question in question %}#}
+{#            <li>{{ question.question }}</li>#}
+{#        {% endfor %}#}
+{#        {% endif %}#}
+        {{ question }}
     </ul>
     <ul>
-        {% for reponse in reponse %}
-            <li>{{ reponse.reponse }}</li>
-        {% endfor %}
+{#        {% for reponse in reponse %}#}
+{#            <li>{{ reponse.reponse }}</li>#}
+{#        {% endfor %}#}
     </ul>
 
 {% endblock %}

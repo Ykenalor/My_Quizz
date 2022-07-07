@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\ReponseRepository;
 use App\Entity\Reponse;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,9 +23,25 @@ class ReponseController extends AbstractController
 
         $res = $reponseRepository->findBy(array('id_question' => $id_ques),array('id_question' => 'ASC'));
 
-        return $this->render('question/index.html.twig', [
+        var_dump($res);
+
+
+
+//        for($i = 0; $i < $res; $i ++){
+//            var_dump($res[$i]);
+//            break;
+//        }
+
+        return $this->render('reponse/index.html.twig', [
             'controller_name' => 'ReponseController',
             'reponse' => $res
         ]);
+    }
+
+    public function showResponses(ManagerRegistry $managerRegistry, int $id){
+
+        $req = $managerRegistry->getRepository(Reponse::class)->find($id);
+
+        return new Response('Check out this great product: '.$managerRegistry->getName());
     }
 }

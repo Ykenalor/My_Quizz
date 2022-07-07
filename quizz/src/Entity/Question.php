@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
+use App\Controller\QuestionController;
 use App\Repository\QuestionRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=QuestionRepository::class)
  */
-class Question
+class Question extends QuestionController
 {
     /**
      * @ORM\Id
@@ -27,6 +28,26 @@ class Question
      */
     private $question;
 
+    private $toto;
+    /**
+     * @return mixed
+     */
+    public function getToto()
+    {
+        return $this->toto;
+    }
+
+    /**
+     * @param mixed $toto
+     */
+    public function setToto($toto): void
+    {
+        $this->toto = $toto;
+    }
+
+    public function ok(){
+        return $this->getToto();
+    }
     public function getId(): ?int
     {
         return $this->id;
@@ -55,4 +76,5 @@ class Question
 
         return $this;
     }
+
 }

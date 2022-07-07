@@ -24,14 +24,7 @@ class ReponseController extends AbstractController
         $res = $reponseRepository->findBy(array('id_question' => $id_ques),array('id_question' => 'ASC'));
 
         var_dump($res);
-
-
-
-//        for($i = 0; $i < $res; $i ++){
-//            var_dump($res[$i]);
-//            break;
-//        }
-
+        
         return $this->render('reponse/index.html.twig', [
             'controller_name' => 'ReponseController',
             'reponse' => $res

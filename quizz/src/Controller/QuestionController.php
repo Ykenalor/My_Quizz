@@ -21,15 +21,16 @@ use Symfony\Contracts\Service\Attribute\Required;
 class QuestionController extends AbstractController
 {
 
+
+
     /**
      * @Route("/question", name="app_question")
      */
 
 
-
-
     public function findQuestionsByCat (Request $request,ManagerRegistry $managerRegistry, QuestionRepository $questionRepository, ReponseRepository $reponseRepository): Response
     {
+
         $id = $request->query->get('id');
         $id_ques = $request->query->get('id');
 //        print_r($id_ques);
@@ -38,8 +39,8 @@ class QuestionController extends AbstractController
 
         $managerRegistry = $reponseRepository->find($id);
 //        var_dump($managerRegistry);
-        $product = $reponseRepository->findOneBy(['id_question' => $id]);
-        var_dump($product);
+        $response = $reponseRepository->findOneBy(['id_question' => $id]);
+        var_dump($response);
 
         $toto = $questionRepository->findOneBy(array('id' => $id_ques));
         var_dump($toto);
@@ -58,5 +59,6 @@ class QuestionController extends AbstractController
 
         ));
     }
+
 
 }

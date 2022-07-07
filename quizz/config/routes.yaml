@@ -10,3 +10,5 @@ categorie:
   defaults:  { _controller: App\Controller\QuestionController::index}
   requirements:
     id: \d+
+    calls:
+      - [ setToto, [ @service_container ] ]

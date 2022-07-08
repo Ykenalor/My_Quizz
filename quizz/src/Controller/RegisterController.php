@@ -22,10 +22,6 @@ class RegisterController extends AbstractController
     {
 
 
-
-
-
-
 //flush and send
 
 
@@ -35,27 +31,22 @@ return $this->render('register/index.html.twig', [
     }
 
 
-
-public function create(  Request $req ,UserRepository  $userRepository ,PasswordHasherInterface $encoder)
-
-
-{
+    public function create(Request $req ,UserRepository  $userRepository , PasswordHasherInterface $encoder)
 
 
+    {
 
+
+print_r($encoder);
     $user = new User();
     $pseudo= $req->request->get('pseudo');
     $password= $req->request->get('password');
 
-    $encoded = $encoder->hash($password);
-
-
-    $user->setPassword($encoded);
+    $user->setPassword($password);
     
     $user->setPseudo($pseudo);
     $user->setRoles(["user"]);
     $userRepository->add($user, true);
-
 
 
     return $this->render('register/index.html.twig', [

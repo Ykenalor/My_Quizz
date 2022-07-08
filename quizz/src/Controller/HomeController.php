@@ -3,18 +3,24 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 class HomeController extends AbstractController
 {
-    #[Route('/', name: 'app_home')]
-    public function index(): JsonResponse
+    #[Route('/', name: 'home')]
+    public function index() 
     {
 
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/HomeController.php',
-        ]);
-    }
+    // get the user information and notifications somehow
+    $userFirstName = '...';
+    $userNotifications = ['...', '...'];
+
+    // the template path is the relative file path from `templates/`
+    return $this->render('home/home.html.twig', [
+        // this array defines the variables passed to the template,
+        // where the key is the variable name and the value is the variable value
+        // (Twig recommends using snake_case variable names: 'foo_bar' instead of 'fooBar')
+        'user_first_name' => $userFirstName,
+        'notifications' => $userNotifications,
+    ]);    }
 }

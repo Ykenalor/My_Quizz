@@ -13,19 +13,19 @@
 
 </div>
 
-    <h1>Questions</h1>
+    <h3>Questions:</h3>
     <ul>
-{#        {% if question %}#}
-{#        {% for question in question %}#}
-{#            <li>{{ question.question }}</li>#}
-{#        {% endfor %}#}
-{#        {% endif %}#}
-        {{ question }}
-    </ul>
-    <ul>
+
+
+        <p>{{ question.question }}</p>
+
 {#        {% for reponse in reponse %}#}
-{#            <li>{{ reponse.reponse }}</li>#}
+{#        <li>{{ reponse.reponse }}</li>#}
 {#        {% endfor %}#}
+     <h3>Reponse:</h3>
+        <p>{% for rep in reponse %}</p>
+        <li>{{rep.reponse}}</li>
+        {% endfor %}
     </ul>
 
 {% endblock %}

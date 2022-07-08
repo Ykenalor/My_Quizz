@@ -33,29 +33,24 @@ class QuestionController extends AbstractController
 
         $id = $request->query->get('id');
         $id_ques = $request->query->get('id');
-//        print_r($id_ques);
+
+
+
 
         $res = $reponseRepository->findBy(array('id_question' => $id_ques),array('id_question' => 'ASC'));
 
-        $managerRegistry = $reponseRepository->find($id);
-//        var_dump($managerRegistry);
-        $response = $reponseRepository->findOneBy(['id_question' => $id]);
-        var_dump($response);
+//        $managerRegistry = $reponseRepository->find($id);
 
-        $toto = $questionRepository->findOneBy(array('id' => $id_ques));
-        var_dump($toto);
+        $reponse = $reponseRepository->findBy(['id_question' => $id]);
 
-//        $quesObj = (object) array(
-//            'question' => '',
-//            'reponse' => [1,2,3],
-//            'result' => 1
-//        );
+
+        $currQuestion = $questionRepository->findOneBy(array('id' => $id_ques));
+
 
         return $this->render('question/index.html.twig', array(
             'controller_name' => 'QuestionController',
-            'question' => $toto,
-//            'reponse' => $res,
-//            'resultat' => $quesObj
+            'question' => $currQuestion,
+            'reponse' => $reponse,
 
         ));
     }

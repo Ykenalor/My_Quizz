@@ -30,24 +30,11 @@ class Question extends QuestionController
 
     private $toto;
     /**
-     * @return mixed
+     * @ORM\Column(type="string", length=255)
      */
-    public function getToto()
-    {
-        return $this->toto;
-    }
 
-    /**
-     * @param mixed $toto
-     */
-    public function setToto($toto): void
-    {
-        $this->toto = $toto;
-    }
 
-    public function ok(){
-        return $this->getToto();
-    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -77,4 +64,24 @@ class Question extends QuestionController
         return $this;
     }
 
+
+    /**
+     * @return mixed
+     */
+    public function getToto()
+    {
+        return $this->toto;
+    }
+
+    /**
+     * @param mixed $toto
+     */
+    public function setToto($toto): void
+    {
+        $this->toto = $toto;
+    }
+    public function __toString(){
+        return (string) $this->toto;
+
+    }
 }

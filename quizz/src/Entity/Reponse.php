@@ -30,6 +30,7 @@ class Reponse
      */
     private $reponse_expected;
 
+
     public function getId(): ?int
     {
         return $this->id;
@@ -78,4 +79,6 @@ class Reponse
     {
         $this->reponse_expected = $reponse_expected;
     }
+
+
 }

@@ -2,7 +2,7 @@ security:
     enable_authenticator_manager: true
     # https://symfony.com/doc/current/security.html#registering-the-user-hashing-passwords
     password_hashers:
-        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+        Symfony\Component\Security\Core\User\password_hasher: 'auto'
     # https://symfony.com/doc/current/security.html#loading-the-user-the-user-provider
     providers:
         # used to reload user from session & other features (e.g. switch_user)
@@ -42,6 +42,6 @@ when@test:
     security:
         
             encoders:
-                password_hashers:
+                password_hasher:
                 App\Entity\User:
                 algorithm: 'auto'

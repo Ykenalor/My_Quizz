@@ -9,10 +9,11 @@ use PhpParser\Node\Expr\Print_;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\PasswordHasherInterface;
 
 use function PHPSTORM_META\type;
 
-class RegisterController extends AbstractController
+class RegisterController extends AbstractController 
 {
 
 
@@ -35,17 +36,21 @@ return $this->render('register/index.html.twig', [
 
 
 
-public function create(  Request $req ,UserRepository  $userRepository )
+public function create(  Request $req ,UserRepository  $userRepository ,PasswordHasherInterface $encoder)
+
 
 {
 
 
+
     $user = new User();
     $pseudo= $req->request->get('pseudo');
-
     $password= $req->request->get('password');
 
-    $user->setPassword(md5($password));
+    $encoded = $encoder->hash($password);
+
+
+    $user->setPassword($encoded);
     
     $user->setPseudo($pseudo);
     $user->setRoles(["user"]);

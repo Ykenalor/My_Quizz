@@ -9,23 +9,19 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Hello Quizz! ✅</h1>
 
 </div>
 
     <h3>Questions:</h3>
     <ul>
-
-
         <p>{{ question.question }}</p>
-
-{#        {% for reponse in reponse %}#}
-{#        <li>{{ reponse.reponse }}</li>#}
-{#        {% endfor %}#}
      <h3>Reponse:</h3>
         <p>{% for rep in reponse %}</p>
         <li>{{rep.reponse}}</li>
         {% endfor %}
     </ul>
+
+    <button>Next</button>
 
 {% endblock %}

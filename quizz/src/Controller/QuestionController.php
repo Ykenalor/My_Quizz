@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-
-
 use App\Entity\Question;
 use App\Entity\Reponse;
 use App\Repository\QuestionRepository;
@@ -21,20 +19,15 @@ use Symfony\Contracts\Service\Attribute\Required;
 class QuestionController extends AbstractController
 {
 
-
-
     /**
      * @Route("/question", name="app_question")
      */
-
 
     public function findQuestionsByCat (Request $request,ManagerRegistry $managerRegistry, QuestionRepository $questionRepository, ReponseRepository $reponseRepository): Response
     {
 
         $id = $request->query->get('id');
         $id_ques = $request->query->get('id');
-
-
 
 
         $res = $reponseRepository->findBy(array('id_question' => $id_ques),array('id_question' => 'ASC'));
